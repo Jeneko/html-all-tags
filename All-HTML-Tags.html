@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All HTML Tags</title>
+    <style>
+        code {
+            background-color: aliceblue;
+            padding: .2rem .4rem;
+            border-radius: .3rem
+        }
+
+        .text_el h3 code {
+            background-color: aquamarine;
+        }
+
+        .semantic_el h3 code {
+            background-color: hotpink;
+        }
+
+        .common_el h3 code {
+            background-color: bisque;
+        }
+
+        .form_el h3 code {
+            background-color: thistle;
+        }
+
+        .globalAndMeta_el h3 code {
+            background-color: darkturquoise;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const tagQuantity = document.querySelectorAll('h3 code').length;
+            document.getElementById('tagQuantity').textContent = tagQuantity;
+        }
+    </script>
+</head>
+
+<body>
+
+    <main>
+        <header>
+            <h1>Полный список <abbr title="HyperText Markup Language">HTML</abbr> тегов</h1>
+            <small>Всего тегов: <span id="tagQuantity"></span> \ 121 | <a href="https://html.spec.whatwg.org/"
+                    target="_blank">Официальная спецификация</a> | <date>(13.09.2021)</date></small>
+        </header>
+
+        <hr>
+
+        <article class="text_el">
+            <h2>Теги выделения и форматирования текста</h2>
+
+            <!-- ABBR -->
+            <h3><code>&lt;abbr title="..."&gt;</code> — аббревиатура</h3>
+            <p>
+                Используется для выделения <i>аббревиатур</i> в тексте. Позволяет дать им расшифровку в атрибуте
+                <code>title</code>.<br>
+                <b>Пример:</b> Принцип <abbr title="Keep It Simple Stupid">KISS</abbr> должен соблюдаться везде, где
+                только можно.
+            </p>
+
+            <!-- EM -->
+            <h3><code>&lt;em&gt;</code> — эмоциональное или смысловое выделение текста (emphasized)</h3>
+            <p>
+                Используется, когда требуется указать в тексте <em>особую</em> часть, на которую сделать <em>отдельный
+                    акцент</em>.<br>
+                <b>Пример:</b> Нужно просто <em>запомнить</em> все основные теги.
+            </p>
+
+            <!-- I -->
+            <h3><code>&lt;i&gt;</code> — выделение курсивом (italic \ idiomatic)</h3>
+            <p>
+                Используется для <em>визуального</em> выделения текста, без добавления <em>акцента</em> или
+                <strong>важности</strong>. Применяется для топонимов, технических терминов, иностранных слов, идиом и
+                т.п.<br>
+                <b>Пример:</b> <i>г.Москва</i> — столица нашей Родины. <i>Центральный процессор</i> — важная деталь
+                любого компьютера.
+            </p>
+
+            <!-- STRONG -->
+            <h3><code>&lt;strong&gt;</code> — важный текст</h3>
+            <P>
+                Используется для выделения важной\критически важной части в тексте. В отличие от <code>&lt;em&gt;</code>
+                не несет эмоциональной или нюансовой нагрузки.<br>
+                <b>Пример:</b> Переход улицы на красный сигнал светофора <strong>строго запрещен</strong>.
+            </P>
+
+            <!-- BOLD -->
+            <h3><code>&lt;b&gt;</code> — выделение жирным (bold \ bring attention)</h3>
+            <p>
+                Используется для <em>визуального</em> выделения текста, без добавления <em>акцента</em> или
+                <strong>важности</strong>. Применяется для ключевых слов, упоминании названия продукта в тексте и
+                т.п.<br>
+                <b>Пример:</b> Компания <b>Apple</b> планирует представить свой новый <b>iPhone</b> на своей ежегодной
+                выставке.
+            </p>
+
+            <!-- U -->
+            <h3><code>&lt;u&gt;</code> — выделение текста без привязки к его смысловой нагрузке и содержанию
+                (unarticulated)</h3>
+            <p>
+                Использутеся в случаях, когда нужно выделить часть текста, не основываясь на его значении. Например, это
+                может быть <i>опечатка</i> или <i>особенное написание</i>.<br>
+                <b>Пример:</b> Он сообщил, что простыл и хочет надеть <u>нозки</u>.
+            </p>
+
+            <!-- MARK -->
+            <h3><code>&lt;mark&gt;</code> — выделение фона текста (будто <i>маркером</i>)</h3>
+            <p>
+                Используется для выделения текста, когда требуется обозначить релевантные части (например,
+                соответствующие <i>поисковому запросу</i>).<br>
+                <b>Пример:</b> Люди часто спрашивают, <mark>как установить Linux</mark>. А потом удивляются.
+            </p>
+
+            <!-- DEL | INS -->
+            <h3><code>&lt;del&gt;</code> <code>&lt;ins&gt;</code> — перечеркнутый текст и новый текст (deleted \
+                inserted)</h3>
+            <p>
+                Позволяет показать правки, сделанные в тексте. В атрибуте <code>cite</code> можно указать ссылку на
+                причину изменения, а в атрибуте <code>datetime</code> время, когда изменение было совершено.<br>
+                <b>Пример:</b> Я знаю <del>некоторые</del> <ins>все</ins> теги.
+            </p>
+
+            <!-- S -->
+            <h3><code>&lt;s&gt;</code> — перечеркнутый текст (strikethrough)</h3>
+            <p>
+                Используется для вычеркивания частей текста без добавления семантики "исправления".<br>
+                <b>Пример:</b> Планы на день: <s>прибраться в комнате</s>, сходить в магазин.
+            </p>
+
+            <!-- SUP | SUB -->
+            <h3><code>&lt;sup&gt;</code> <code>&lt;sub&gt;</code> — надстрочный и подстрочный текст (superscript \
+                subscript)</h3>
+            <p>
+                Используется <strong>строго</strong> в типографических нуждах, когда требуется написать <i>формулу</i>
+                или дать
+                <i>сноску</i>. Нельзя использовать для <i>художественного</i> оформления текста.<br>
+                <b>Пример &lt;sup&gt;:</b> x<sup>2</sup>+y<sup>2</sup>=R<sup>2</sup>
+                <b>Пример &lt;sub&gt;:</b> C<sub>2</sub>H<sub>5</sub>OH
+            </p>
+
+            <!-- SMALL -->
+            <h3><code>&lt;small&gt;</code> — второстепенный комментарий к основному тексту</h3>
+            <p>
+                Используется для текста копирайта, правовой и уточняющей технической информации. Степень
+                <i>семантичности</i> неопределенная.<br>
+                <b>Пример:</b> <small>сайт разработан в приложении "Блокнот"</small>
+            </p>
+
+            <!-- CITE -->
+            <h3><code>&lt;cite&gt;</code> — источник цитаты (citation)</h3>
+            <p>
+                Помечает текст, как источник цитирования. Может содержать ссылку <code>&lt;a&gt;</code> на источник.<br>
+                <b>Пример:</b> "Кто не работает — тот ест" <cite>(Операция "Ы" и другие приключения Шурика)</cite>
+            </p>
+
+            <!-- Q -->
+            <h3><code>&lt;q cite="..."&gt;</code> — цитата (quotation)</h3>
+            <p>
+                Используется для выделения части текста в качестве <i>цитаты</i>.<br>
+                <b>Пример:</b> Как говорит наш дорогой шев: <q cite="https://apple.com">Куй железо, не отходя от
+                    кассы!</q>
+            </p>
+
+            <!-- CODE -->
+            <h3><code>&lt;code&gt;</code> — выделение блока кода</h3>
+            <p>
+                Используется для выделения текста, являющегося примером кода.<br>
+                <b>Пример:</b> Тег <code>&lt;html&gt;</code> является основным тегом.
+            </p>
+
+            <!-- KBD -->
+            <h3><code>&lt;kbd&gt;</code> — пользовательский ввод (keyboard input)</h3>
+            <p>
+                Помечает текст, как текст, который пользователь может ввести с клавиатуры (или иным способом).<br>
+                <b>Пример:</b> Для получения подсказки введите <kbd>--help;</kbd>
+            </p>
+
+            <!-- SAMP -->
+            <h3><code>&lt;samp&gt;</code> — пример программного вывода (sample output)</h3>
+            <p>
+                Используется в случаях, когда текст представляет собой <i>текстовое сообщение</i> какой-либо программы
+                (например, консольный вывод).<br>
+                <b>Пример:</b> После завершения работы программы в консоли вы увидите: <samp>Press any key...</samp>.
+            </p>
+
+            <!-- OUTPUT -->
+            <h3><code>&lt;output&gt;</code> — место вывода вычисляемых (скриптом) данных</h3>
+            <p>
+                Как правило используется в сочетании с формой, т.к. элемент имеет дополнительные атрибуты, связывающие
+                его с какой-либо формой и ее данными:<br>
+                <code>for</code> — список <i>id</i> элементов (через пробел), чьи значения используются в
+                вычислении.<br>
+                <code>form</code> — <i>id</i> формы, к которой относится вычисляемое значение. Если <code>output</code>
+                находится внутри формы, то можно не указывать.<br>
+                <code>name</code> — <i>имя элемента</i>, которое можно использовать для присваивания элементу
+                <i>вычисленного значения</i> с использованием <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/elements"
+                    target="_blank">from.elements API</a>.
+            </p>
+            <form oninput="res.value = +a.value + +b.value">
+                <input type="range" name="a" min="0" max="10" id="a"> +
+                <input type="number" name="b" value="3" id="b"> =
+                <output name="res" from="a b"></output>
+            </form>
+
+        </article>
+
+        <hr>
+
+        <article class="semantic_el">
+            <h2>Семантические блоки</h2>
+
+            <!-- HEADER -->
+            <h3><code>&lt;header&gt;</code> — заголовок</h3>
+            <p>
+                Предназначен для размещения внутри себя <i>основной шапки сайта</i>, а так же <i>шапки article \
+                    section</i>. Может присутствовать на странице во множественном числе.
+            </p>
+
+            <!-- MAIN -->
+            <h3><code>&lt;main&gt;</code> — блок основного контента</h3>
+            <p>
+                Предназначен для размещения внутри себя <i>основного содержимого страницы</i>. Должен присутствовать на
+                странице в единственном числе.
+            </p>
+
+            <!-- ASIDE -->
+            <h3><code>&lt;aside&gt;</code> — блок второстепенного контента</h3>
+            <p>
+                Предназначен для размещения внутри себя <i>второстепенного содержимого страницы</i>. Может
+                присутствовать на странице во множественном числе.
+            </p>
+
+            <!-- FOOTER -->
+            <h3><code>&lt;footer&gt;</code> — подвал</h3>
+            <p>
+                Предназначен для размещения внутри себя <i>подвала страницы</i>, а так же <i>футеров article \
+                    section</i>.
+            </p>
+
+            <!-- ARTICLE -->
+            <h3><code>&lt;article&gt;</code> — блок статьи</h3>
+            <p>
+                Независимая часть страницы, которая может быть использована вне контекста страницы. Может быть вложен в
+                другой элемент <code>article</code> или <code>section</code>.<br>
+                <b>Примеры использования:</b> статья, запись в ленте новостей, виджет в боковой колонке.
+            </p>
+
+            <!-- SECTION -->
+            <h3><code>&lt;section&gt;</code> — блок секции</h3>
+            <p>
+                Составляющая часть какой-либо семантической сущности (например, секция статьи или отзыва). Может быть
+                вложен в другой элемент <code>section</code> или <code>article</code>.
+            </p>
+
+            <!-- BLOCKQUOTE -->
+            <h3><code>&lt;blockquote cite="..."&gt;</code> — блок цитаты (block quotation)</h3>
+            <p>
+                Используется в случае, когда весь текстовый блок является <i>цитатой</i>. Позволяет указать источник
+                цитаты в атрибуте <code>cite</code>.
+            </p>
+            <b>Пример:</b>
+            <blockquote cite="https://lipsum.com/">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda excepturi repudiandae quam nihil
+                repellat at nostrum cupiditate dolores facilis non nobis tenetur, tempora dignissimos necessitatibus
+                eius libero odit. Alias, delectus?
+            </blockquote>
+
+            <!-- NAV -->
+            <!-- FIGURE -->
+            <!-- FIGCAPTION -->
+            <!-- PICTURE -->
+            <!-- DETAILS -->
+            <!-- SUMMARY -->
+            <!-- TIME -->
+        </article>
+
+        <hr>
+
+        <article class="common_el">
+            <h2>Теги заголовков</h2>
+            <h3>
+                <code>&lt;h1&gt;</code>
+                <code>&lt;h2&gt;</code>
+                <code>&lt;h3&gt;</code>
+                <code>&lt;h4&gt;</code>
+                <code>&lt;h5&gt;</code>
+                <code>&lt;h6&gt;</code>
+                — заголовки (heading)
+            </h3>
+            <h1>H1 header</h1>
+            <h2>H2 header</h2>
+            <h3>H3 header</h3>
+            <h4>H4 header</h4>
+            <h5>H5 header</h5>
+            <h6>H6 header</h6>
+        </article>
+
+        <hr>
+
+        <article class="common_el">
+            <h2>Текст и элементы текста</h2>
+
+            <!-- P -->
+            <h3><code>&lt;p&gt;</code> — абзац текста</h3>
+
+            <!-- SPAN -->
+            <h3><code>&lt;span&gt;</code> — часть текста</h3>
+
+            <!-- A -->
+            <h3><code>&lt;a&gt;</code> — ссылка</h3>
+
+        </article>
+
+        <hr>
+
+        <article class="common_el">
+            <h2>Списки и элементы списков</h2>
+
+            <!-- UL -->
+            <h3><code>&lt;ul&gt;</code> — ненумерованный список (unordered list)</h3>
+            <ul>
+                <li>List element 1</li>
+                <li>List element 2</li>
+                <li>List element 3</li>
+            </ul>
+
+            <!-- OL -->
+            <h3><code>&lt;ol&gt;</code> — нумерованный список (ordered list)</h3>
+            <ol>
+                <li>List element 1</li>
+                <li>List element 2</li>
+                <li>List element 3</li>
+            </ol>
+
+            <!-- LI -->
+            <h3><code>&lt;li&gt;</code> — элемент списка (list item)</h3>
+        </article>
+
+        <hr>
+
+        <article class="common_el">
+            <h2>Табличные теги</h2>
+
+            <!-- TABLE -->
+            <h3><code>&lt;table&gt;</code> — таблица</h3>
+
+            <!-- CAPTION -->
+            <h3><code>&lt;caption&gt;</code> — заголовок таблицы</h3>
+            <p>
+                Место отображения (сверху или снизу) может быть задано через <i>CSS-свойство</i> <code>caption-side: [top|bottom]</code>
+            </p>
+
+            <!-- COLGROUP -->
+            <h3><code>&lt;colgroup&gt;</code> — определяет стили одного и более столбцов таблицы (group of columns)</h3>
+            <p>
+                Размещается на том же уровне, что и <code>tr</code> элементы после опционального заголовка
+                <code>caption</code>. Можно не использовать закрывающий тег, если внутри не используются
+                <code>col</code>. Так же, в этом случае можно задать атрибут <code>span</code>, который определяет
+                количество столбцов, для которых будут определены стили.<br>
+                Список доступных <i>CSS-стилей</i> <strong>ограничен</strong>: можно задать <code>border</code>,
+                <code>background</code>, <code>width</code> и <code>visibility</code>.
+            </p>
+
+            <!-- COL -->
+            <h3><code>&lt;col&gt;</code> — определяет стиль отдельного столбца таблицы. Используется внутри
+                <i>colgroup</i>
+            </h3>
+            <p>
+                Размещается внутри <code>colgroup</code>, определяет стиль столбца. Так же, как и <code>colgroup</code>
+                может содержать атрибут <code>span</code>, который определяет количество столбцов, для которых
+                определяются стили.<br>
+                Список доступных <i>CSS-стилей</i> <strong>ограничен</strong>: можно задать <code>border</code>,
+                <code>background</code>, <code>width</code> и <code>visibility</code>.
+            </p>
+
+            <!-- THEAD -->
+            <h3><code>&lt;thead&gt;</code> — шапка таблицы</h3>
+
+            <!-- TDOBY -->
+            <h3><code>&lt;tbody&gt;</code> — тело таблицы</h3>
+
+            <!-- TFOOT -->
+            <h3><code>&lt;tfoot&gt;</code> — футер таблицы</h3>
+
+            <!-- TR -->
+            <h3><code>&lt;tr&gt;</code> — строка таблицы (table row)</h3>
+
+            <!-- TD -->
+            <h3><code>&lt;td&gt;</code> — ячейка таблицы (table data)</h3>
+
+            <!-- TH -->
+            <h3><code>&lt;th&gt;</code> — заголовок столбца\строки (table header)</h3>
+            <p>
+                Имеет атрибут <code>scope</code>, который может принимать значения <i>row</i> и <i>col</i>. Определяет к
+                строке или столбцу относится заголовок.
+            </p>
+
+        </article>
+
+        <hr>
+
+        <article class="form_el">
+            <h2>Элементы форм</h2>
+
+            <!-- FORM -->
+            <h3><code>&lt;form&gt;</code> — форма</h3>
+            <p>
+                Основной элемент формы, содержащий все остальные элементы.
+            </p>
+
+            <!-- FIELDSET -->
+            <h3><code>&lt;fieldset&gt;</code> — группа полей ввода</h3>
+            <p>
+                Позволяет группировать поля формы.
+            </p>
+
+            <!-- LEGEND -->
+            <h3><code>&lt;legend&gt;</code> — имя группы полей</h3>
+            <p>
+                Используется внутри <code>fieldset</code>, задает имя для группы полей ввода.
+            </p>
+
+            <!-- LABEL -->
+            <h3><code>&lt;label for="..."&gt;</code> — имя поля ввода</h3>
+
+            <!-- INPUT -->
+            <h3><code>&lt;input&gt;</code> — поле ввода</h3>
+            <table>
+                <tr>
+                    <td>text</td>
+                    <td><input type="text" value="Hello"></td>
+                </tr>
+                <tr>
+                    <td>number</td>
+                    <td><input type="number" value="2021"></td>
+                </tr>
+                <tr>
+                    <td>tel</td>
+                    <td><input type="tel" value="88005553535"></td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td><input type="email" value="example@domain.com"></td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td><input type="password" value="password"></td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td><input type="url" value="http://ya.ru"></td>
+                </tr>
+                <tr>
+                    <td>search</td>
+                    <td><input type="search"></td>
+                </tr>
+                <tr>
+                    <td>checkbox</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>radio</td>
+                    <td><input type="radio"></td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td><input type="color"></td>
+                </tr>
+                <tr>
+                    <td>reset</td>
+                    <td><input type="reset"></td>
+                </tr>
+                <tr>
+                    <td>submit</td>
+                    <td><input type="submit"></td>
+                </tr>
+                <tr>
+                    <td>button</td>
+                    <td><input type="button" value="Click Me"></td>
+                </tr>
+                <tr>
+                    <td>file</td>
+                    <td><input type="file"></td>
+                </tr>
+                <tr>
+                    <td>hidden</td>
+                    <td><input type="hidden"></td>
+                </tr>
+                <tr>
+                    <td>range</td>
+                    <td><input type="range"></td>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td><input type="time"></td>
+                </tr>
+                <tr>
+                    <td>date</td>
+                    <td><input type="date"></td>
+                </tr>
+                <tr>
+                    <td>week</td>
+                    <td><input type="week"></td>
+                </tr>
+                <tr>
+                    <td>month</td>
+                    <td><input type="month"></td>
+                </tr>
+                <tr>
+                    <td>datetime-local</td>
+                    <td><input type="datetime-local"></td>
+                </tr>
+                <tr>
+                    <td>image</td>
+                    <td><input type="image" src="images/input_image.png"></td>
+                </tr>
+            </table>
+        </article>
+
+        <hr>
+
+        <article class="globalAndMeta_el">
+            <h2>Глобальные и мета теги <i>HTML-документа</i></h2>
+
+            <h3>
+                <!--  -->
+                <code>&lt;!-- --&gt;</code>
+
+                <!-- <!DOCTYPE> -->
+                <code>&lt;!DOCTYPE html&gt;</code>
+
+                <!-- HTML -->
+                <code>&lt;HTML lang="ru"&gt;</code>
+
+                <!-- HEAD -->
+                <code>&lt;head&gt;</code>
+
+                <!-- BODY -->
+                <code>&lt;body&gt;</code>
+
+                <!-- META -->
+                <code>&lt;meta&gt;</code>
+
+                <!-- LINK -->
+                <code>&lt;link&gt;</code>
+
+                <!-- STYLE -->
+                <code>&lt;style&gt;</code>
+
+                <!-- SCRIPT -->
+                <code>&lt;script&gt;</code>
+            </h3>
+        </article>
+
+        <hr>
+        <hr>
+
+        <article>
+            <h2>Теги, которые, вероятно, не нужно учить</h2>
+
+            <h3>
+                <code>&lt;ruby&gt;</code>
+                <code>&lt;rb&gt;</code>
+                <code>&lt;rt&gt;</code>
+                <code>&lt;rtc&gt;</code>
+                <code>&lt;rp&gt;</code>
+                — размещение текста в азиатских и восточных языках
+            </h3>
+        </article>
+    </main>
+
+    <hr>
+
+    <footer>
+        <address>© Kupchino Village, 2021</address>
+    </footer>
+</body>
+
+</html>
