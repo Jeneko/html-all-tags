@@ -25,6 +25,10 @@
             background-color: bisque;
         }
 
+        .table_el h3 code {
+            background-color: pink;
+        }
+
         .form_el h3 code {
             background-color: thistle;
         }
@@ -230,6 +234,14 @@
                 странице в единственном числе.
             </p>
 
+            <!-- NAV -->
+            <h3><code>&lt;nav&gt;</code> — блок навигации</h3>
+            <p>
+                Может присутствовать на странице многократно. Обычно оборачивается вокруг <code>ul</code>. Внутрь
+                <code>nav</code> следует помещать только главные навигационные блоки. Отдельные ссылки или меню ссылок
+                <i>второстепенного значения</i> можно не помещать внуть <code>nav</code>.
+            </p>
+
             <!-- ASIDE -->
             <h3><code>&lt;aside&gt;</code> — блок второстепенного контента</h3>
             <p>
@@ -272,13 +284,151 @@
                 eius libero odit. Alias, delectus?
             </blockquote>
 
-            <!-- NAV -->
-            <!-- FIGURE -->
-            <!-- FIGCAPTION -->
-            <!-- PICTURE -->
+            <!-- FIGURE | FIGCAPTION -->
+            <h3><code>&lt;figure&gt;</code> и <code>&lt;figcaption&gt;</code> — контейнер информации c подписью к ней
+            </h3>
+            <p>
+                <code>figure</code> может содержать изображение, диаграмму, фрагмент кода <code>code</code>, стихи,
+                цитату <code>blockquote</code> и т.п. и подпись <code>figcaption</code>.
+            </p>
+            <figure>
+                <img src="images/figure_img.jpg" alt="Слон">
+                <figcaption>Это слон и три птички</figcaption>
+            </figure>
+
             <!-- DETAILS -->
             <!-- SUMMARY -->
             <!-- TIME -->
+        </article>
+
+        <hr>
+
+        <article class="semantic_el">
+            <h2>Семантические блоки мультимедии</h2>
+
+            <!-- PICTURE -->
+            <h3><code>&lt;picture&gt;</code> — контейнер изображений</h3>
+            <p>
+                Позволяет указать внутри себя несколько вариантов изображений, из которых браузером будет выбрано самое
+                подходящее. Внутри должен присутствовать тег <code>img</code> с изображением <i>по-умолчанию</i>.
+                Дополнительные изображения задаются элементами <code>source</code>.
+            </p>
+            <pre>
+                &lt;picture&gt;
+                    &lt;source srcset="images/picture_img.webp"&gt;
+                    &lt;img src="images/picture_img.jpg" alt=""&gt;
+                &lt;/picture&gt;
+            </pre>
+            <picture>
+                <source srcset="images/picture_img.webp" type="image/webp">
+                <img src="images/picture_img.jpg" alt="">
+            </picture>
+
+            <!-- VIDEO -->
+            <h3><code>&lt;video src="..."&gt;</code> — видео</h3>
+            <p>
+                Источник видео может быть задан через атрибут <code>src</code> или через элемент <code>source</code>.
+                Можно добавить несколько <code>source</code> с разными форматами видео (формат указывается в аргументе
+                <code>type</code>). В этом случае будет выбран первый поддерживаемый формат.
+            </p>
+            <h4>Атрибуты</h4>
+            <ul>
+                <li>
+                    <b>autoplay</b> — автоматическое начало воспроизведения.
+                </li>
+                <li>
+                    <b>controls</b> — отображать элементы управления.
+                </li>
+                <li>
+                    <b>src</b> — источник медиа-ресурса. Можно использовать <em>вместо</em> <code>source</code>.
+                </li>
+                <li>
+                    <b>width</b> и <b>height</b> — ширина и высота в <i>px</i>.
+                </li>
+                <li>
+                    <b>loop</b> — зациклить.
+                </li>
+                <li>
+                    <b>muted</b> — без звука.
+                </li>
+                <li>
+                    <b>playsinline</b> — просит мобильные браузеры не переходить автоматически в полноэкранный режим при
+                    начале воспроизведения видео.
+                </li>
+                <li>
+                    <b>poster</b> — <abbr title="Unified Resource Link">URL</abbr> изображения, показывающегося до
+                    начала воспроизведения видео.
+                </li>
+                <li>
+                    <b>preload</b> — настройка загрузки: <i>none</i> (не предзагружать), <i>metadata</i> (предзагружать
+                    мета-данные),
+                    <i>auto</i> (на усмотрение браузера. Является значением по-умолчанию).
+                </li>
+            </ul>
+            <video src="images/trees_in_new_zealand.mp4" autoplay controls loop width="640">
+                Похоже, что ваш браузер не может воспроизвести видео :(
+            </video>
+
+            <!-- AUDIO -->
+            <h3><code>&lt;audio src="..."&gt;</code> — аудио</h3>
+            <p>
+                Источник аудио может быть задан через атрибут <code>src</code> или через элемент <code>source</code>.
+                Можно добавить несколько <code>source</code> с разными форматами аудио (формат указывается в аргументе
+                <code>type</code>). В этом случае будет выбран первый поддерживаемый формат.
+            </p>
+            <h4>Атрибуты</h4>
+            <ul>
+                <li>
+                    <b>autoplay</b> — автоматическое начало воспроизведения.
+                </li>
+                <li>
+                    <b>controls</b> — отображать элементы управления.
+                </li>
+                <li>
+                    <b>src</b> — источник медиа-ресурса. Можно использовать <em>вместо</em> <code>source</code>.
+                </li>
+                <li>
+                    <b>loop</b> — зациклить.
+                </li>
+                <li>
+                    <b>muted</b> — без звука.
+                </li>
+                <li>
+                    <b>preload</b> — настройка загрузки: <i>none</i> (не предзагружать), <i>metadata</i> (предзагружать
+                    мета-данные),
+                    <i>auto</i> (на усмотрение браузера. Является значением по-умолчанию).
+                </li>
+            </ul>
+            <audio src="images/audio_file.mp3" controls></audio>
+
+            <!-- SOURCE -->
+            <h3><code>&lt;source&gt;</code> — источник</h3>
+            <p>
+                Задает медиа-ресурс, который будет отображен в блоке <code>&lt;picture&gt;</code>,
+                <code>&lt;audio&gt;</code> или <code>&lt;video&gt;</code>. Выбор того или иного
+                <code>&lt;source&gt;</code> определяется в зависимости от значений <i>атрибутов</i>.
+            </p>
+            <p>
+                <b>type</b> — MIME-тип ресурса (опционально). Если не указан, то будет взят из загруженного файла.
+            </p>
+            <strong>Атрибуты для <code>&lt;picture&gt;</code>:</strong>
+            <ul>
+                <li><b>sizes</b> — список (через запятую) из медиавыражения и желаемого размера изображения:<br>
+                    <code>sizes="(max-width: 320px) 400px, (min-width: 600px) 100vw"</code>
+                </li>
+                <li><b>srcset</b> — список (через запятую) из ширины (или плотности) и соответствующего ей
+                    изображения:<br><code>srcset="img2x.png 2x, img.png 100w"</code><br>
+                </li>
+                <li><b>media</b> — медиавыражение, при котором будет выводиться ресурс:<br>
+                    <code>media="(max-width: 400px) 100vw, 720px"</code><br>
+                </li>
+            </ul>
+            <strong>Атрибуты для <code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code>:</strong>
+            <ul>
+                <li>
+                    <b>src</b> — источник медиа-ресурса.
+                </li>
+            </ul>
         </article>
 
         <hr>
@@ -316,6 +466,8 @@
             <!-- A -->
             <h3><code>&lt;a&gt;</code> — ссылка</h3>
 
+            <!-- PRE -->
+
         </article>
 
         <hr>
@@ -345,7 +497,7 @@
 
         <hr>
 
-        <article class="common_el">
+        <article class="table_el">
             <h2>Табличные теги</h2>
 
             <!-- TABLE -->
@@ -354,7 +506,8 @@
             <!-- CAPTION -->
             <h3><code>&lt;caption&gt;</code> — заголовок таблицы</h3>
             <p>
-                Место отображения (сверху или снизу) может быть задано через <i>CSS-свойство</i> <code>caption-side: [top|bottom]</code>
+                Место отображения (сверху или снизу) может быть задано через <i>CSS-свойство</i>
+                <code>caption-side: [top|bottom]</code>
             </p>
 
             <!-- COLGROUP -->
@@ -542,6 +695,9 @@
                 <!-- HEAD -->
                 <code>&lt;head&gt;</code>
 
+                <!-- TITLE -->
+                <code>&lt;title&gt;</code>
+
                 <!-- BODY -->
                 <code>&lt;body&gt;</code>
 
@@ -557,13 +713,22 @@
                 <!-- SCRIPT -->
                 <code>&lt;script&gt;</code>
             </h3>
+            <p>
+                Теги, составляющие <i>базовый каркас HTML-страницы</i>.
+            </p>
+
+            <!-- BASE -->
+            <h3><code>&lt;base href="..."&gt;</code> — базовый URL</h3>
+            <p>
+                Позволяет указать базовый адрес для относительных <abbr title="Uniform Resource Link">URL</abbr>
+                документа (ссылок, изображений и пр.), задав его через атрибут <code>href</code>.
+            </p>
         </article>
 
         <hr>
-        <hr>
 
         <article>
-            <h2>Теги, которые, вероятно, не нужно учить</h2>
+            <h2>Теги, которые вряд ли пригодятся</h2>
 
             <h3>
                 <code>&lt;ruby&gt;</code>
