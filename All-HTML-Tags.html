@@ -50,7 +50,7 @@
     <main>
         <header>
             <h1>Полный список <abbr title="HyperText Markup Language">HTML</abbr> тегов</h1>
-            <small>Всего тегов: <span id="tagQuantity"></span> \ 121 | <a href="https://html.spec.whatwg.org/"
+            <small>Всего тегов: <span id="tagQuantity"></span> \ 115 | <a href="https://html.spec.whatwg.org/"
                     target="_blank">Официальная спецификация</a> | <date>(13.09.2021)</date></small>
         </header>
 
@@ -171,10 +171,17 @@
                     кассы!</q>
             </p>
 
-            <!-- CODE -->
-            <h3><code>&lt;code&gt;</code> — выделение блока кода</h3>
+            <!-- VAR -->
+            <h3><code>&lt;var&gt;</code> — выделение переменной (variable)</h3>
             <p>
-                Используется для выделения текста, являющегося примером кода.<br>
+                Используется для выделения переменной в тексте.<br>
+                <b>Пример:</b> переменная <var>status</var> определяет дальнейшее поведение алгоритма.
+            </p>
+
+            <!-- CODE -->
+            <h3><code>&lt;code&gt;</code> — выделение кода</h3>
+            <p>
+                Используется для выделения кода в тексте.<br>
                 <b>Пример:</b> Тег <code>&lt;html&gt;</code> является основным тегом.
             </p>
 
@@ -271,6 +278,19 @@
                 вложен в другой элемент <code>section</code> или <code>article</code>.
             </p>
 
+            <!-- ADDRESS -->
+            <h3><code>&lt;address&gt;</code> — блок адреса</h3>
+            <p>
+                Используется для указания адреса автора, фирмы и т.п. Может находиться внутри <code>article</code>,
+                <code>footer</code> и других местах. Должен содержать только информацию об адресе. Внутри рекомендуется
+                написать чей именно это адрес. Внутри может быть текст, ссылки и любые другие элементы, относящиеся к
+                адресу.<br>
+            <address>
+                Автор страницы: <a href="mailto:jenekomail@gmail.com">jenekomail@gmail.com</a><br>
+                Адрес производства: Россия, д.Купчино.
+            </address>
+            </p>
+
             <!-- BLOCKQUOTE -->
             <h3><code>&lt;blockquote cite="..."&gt;</code> — блок цитаты (block quotation)</h3>
             <p>
@@ -288,17 +308,52 @@
             <h3><code>&lt;figure&gt;</code> и <code>&lt;figcaption&gt;</code> — контейнер информации c подписью к ней
             </h3>
             <p>
-                <code>figure</code> может содержать изображение, диаграмму, фрагмент кода <code>code</code>, стихи,
-                цитату <code>blockquote</code> и т.п. и подпись <code>figcaption</code>.
+                <code>figure</code> может содержать изображение, диаграмму, фрагмент кода <code>&lt;code&gt;</code>,
+                стихи, цитату <code>blockquote</code> и т.п. и подпись <code>&lt;figcaption&gt;</code>.
             </p>
             <figure>
                 <img src="images/figure_img.jpg" alt="Слон">
                 <figcaption>Это слон и три птички</figcaption>
             </figure>
 
-            <!-- DETAILS -->
-            <!-- SUMMARY -->
+            <!-- DETAILS | SUMMARY -->
+            <h3><code>&lt;details&gt;</code> и <code>&lt;summary&gt;</code> — раскрывающийся текст и его заголовок
+                (нативный аккордеон)</h3>
+            <p>
+                Внутри может содержатья элемент <code>summary</code>, который станет заголовком элемента.
+                Необязательный атрибут <code>open</code> определяет <i>раскрыт</i> текст или <i>закрыт</i>.
+            </p>
+            <details>
+                <summary>Краткое описание 1</summary>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit voluptatibus aspernatur
+                blanditiis debitis pariatur ducimus, mollitia in nisi quae architecto dolorem consequuntur provident
+                maiores officia fugiat recusandae aliquid voluptate natus?
+            </details>
+            <details open>
+                <summary>Краткое описание 2</summary>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit voluptatibus aspernatur
+                blanditiis debitis pariatur ducimus, mollitia in nisi quae architecto dolorem consequuntur provident
+                maiores officia fugiat recusandae aliquid voluptate natus?
+            </details>
+
+            <!-- DATA -->
+            <h3><code>&lt;data&gt;</code> — связывает свое содержимое со значением своего атрибута <i>value</i></h3>
+            <p>
+                Используется в случае, когда для каких-то <i>данных</i> (например, модели телефона) указать
+                <em>технические</em> данные, предназначенные для последующей обработки через <abbr
+                    title="JavaScript">JS</abbr>. Если речь идет о данных <i>времени</i>, следует использовать элемент
+                <code>time</code>.<br>
+                <b>Пример:</b> мой планшет модели <data value="pth-440ru">Wacom Intuos 4</data>
+            </p>
+
             <!-- TIME -->
+            <h3><code>&lt;time&gt;</code> — связывает свое содержимое со значением своего атрибута <i>datetime</i></h3>
+            <p>
+                Используется в случае, когда для каких-то <i>данных времени</i> требуется указать
+                <em>технические данные времени</em>, предназначенные для последующей обработки через <abbr
+                    title="JavaScript">JS</abbr>.<br>
+                <b>Пример:</b> встреча состоится <time datetime="2021-04-01 12:00">первого апреля в полдень</time>.
+            </p>
         </article>
 
         <hr>
@@ -408,22 +463,24 @@
                 <code>&lt;audio&gt;</code> или <code>&lt;video&gt;</code>. Выбор того или иного
                 <code>&lt;source&gt;</code> определяется в зависимости от значений <i>атрибутов</i>.
             </p>
-            <p>
-                <b>type</b> — MIME-тип ресурса (опционально). Если не указан, то будет взят из загруженного файла.
-            </p>
-            <strong>Атрибуты для <code>&lt;picture&gt;</code>:</strong>
+            <h4>Общие атрибуты</h4>
+            <ul>
+                <li><b>type</b> — MIME-тип ресурса (опционально). Если не указан, то будет взят из загруженного файла.
+                </li>
+            </ul>
+            <h4>Атрибуты для <code>&lt;picture&gt;</code>:</h4>
             <ul>
                 <li><b>sizes</b> — список (через запятую) из медиавыражения и желаемого размера изображения:<br>
                     <code>sizes="(max-width: 320px) 400px, (min-width: 600px) 100vw"</code>
                 </li>
                 <li><b>srcset</b> — список (через запятую) из ширины (или плотности) и соответствующего ей
-                    изображения:<br><code>srcset="img2x.png 2x, img.png 100w"</code><br>
+                    изображения:<br><code>srcset="img2x.png 2x, img.png 100w"</code>
                 </li>
                 <li><b>media</b> — медиавыражение, при котором будет выводиться ресурс:<br>
-                    <code>media="(max-width: 400px) 100vw, 720px"</code><br>
+                    <code>media="(max-width: 400px) 100vw, 720px"</code>
                 </li>
             </ul>
-            <strong>Атрибуты для <code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code>:</strong>
+            <h4>Атрибуты для <code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code>:</h4>
             <ul>
                 <li>
                     <b>src</b> — источник медиа-ресурса.
@@ -455,6 +512,46 @@
         <hr>
 
         <article class="common_el">
+            <h2>Контент и прочее</h2>
+
+            <!-- HR -->
+            <h3><code>&lt;hr&gt;</code> — разделитель (Horizontal Rule)</h3>
+
+            <!-- NOSCRIPT -->
+            <h3><code>&lt;noscript&gt;</code> — контент при отключенном JS</h3>
+            <noscript>
+                Похоже ваш браузер не поддерживает JS :(
+            </noscript>
+
+            <!-- IMG -->
+            <h3><code>&lt;img src="..."&gt;</code> — изображение (image)</h3>
+            <img src="images/picture_img.jpg" alt="">
+
+            <!-- MAP | AREA -->
+            <h3><code>&lt;map&gt;</code> и <code>&lt;area&gt;</code> — карта изображения и ее области</h3>
+            <p>
+                Позволяет указать для изображения кликабельные области. Каждая область описывается отдельным элементом
+                <code>area</code>. Для присвоения <code>map</code> к <code>img</code> у <code>map</code> треубется
+                указать атрибут <code>name</code>, после чего у <code>img</code> указать атрибут <code>usemap</code>
+                равным <strong>#имя_map</strong>.
+            </p>
+            <map name="image_map">
+                <area shape="rect" coords="0,0,320,240" href="https://ya.ru" alt="yandex" title="yandex">
+                <area shape="rect" coords="320,0,640,240" href="https://google.com" alt="google" title="google">
+                <area shape="rect" coords="0,240,320,480" href="https://apple.com" alt="apple" title="apple">
+                <area shape="rect" coords="320,240,640,480" href="https://microsoft.com" alt="microsoft"
+                    title="microsoft">
+            </map>
+            <img usemap="#image_map" src="images/map_image.jpg" alt="Map Image">
+
+            <!-- IFRAME -->
+            <h3><code>&lt;iframe src="..."&gt;</code> — встроенное содержимое</h3>
+            <iframe src="All-HTML-Tags.html" frameborder="0" width="640" height="240"></iframe>
+        </article>
+
+        <hr>
+
+        <article class="common_el">
             <h2>Текст и элементы текста</h2>
 
             <!-- P -->
@@ -467,7 +564,11 @@
             <h3><code>&lt;a&gt;</code> — ссылка</h3>
 
             <!-- PRE -->
-
+            <h3><code>&lt;pre&gt;</code> — преформатированный текст (preformatted)</h3>
+            <p>
+                Запрещает <i>схлопывание</i> пробелов и переносов строк в содержимом.
+                Аналог <i><abbr title="Cascading Style Sheets">CSS</abbr>-свойства</i> <code>white-space: pre;</code>.
+            </p>
         </article>
 
         <hr>
@@ -569,16 +670,15 @@
             </p>
 
             <!-- FIELDSET -->
-            <h3><code>&lt;fieldset&gt;</code> — группа полей ввода</h3>
+            <h3><code>&lt;fieldset&gt;</code> и <code>&lt;legend&gt;</code> — группа полей ввода и ее имя</h3>
             <p>
-                Позволяет группировать поля формы.
+                Позволяет группировать поля формы и с помощью <code>legend</code> указывать имя этой группе.
             </p>
-
-            <!-- LEGEND -->
-            <h3><code>&lt;legend&gt;</code> — имя группы полей</h3>
-            <p>
-                Используется внутри <code>fieldset</code>, задает имя для группы полей ввода.
-            </p>
+            <fieldset>
+                <legend>Пользователь</legend>
+                <input type="text" name="login" placeholder="Login">
+                <input type="password" name="pass" placeholder="Password">
+            </fieldset>
 
             <!-- LABEL -->
             <h3><code>&lt;label for="..."&gt;</code> — имя поля ввода</h3>
@@ -675,6 +775,25 @@
                     <td><input type="image" src="images/input_image.png"></td>
                 </tr>
             </table>
+
+            <!-- BUTTON -->
+            <h3><code>&lt;button&gt;</code> — кнопка</h3>
+            <button>Click Me</button>
+
+            <!-- TEXTAREA -->
+            <h3><code>&lt;textarea&gt;</code> — текстовое поле</h3>
+            <textarea name="" id="" cols="30"
+                rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, magnam?</textarea>
+
+            <!-- SELECT | OPTION -->
+            <h3><code>&lt;select&gt;</code> и <code>&lt;option&gt;</code> — выпадающий список и его пункты</h3>
+            <select name="" id="">
+                <option value="">--Please choose an option--</option>
+                <option value="1">Value 1</option>
+                <option value="2">Value 2</option>
+                <option value="3">Value 3</option>
+            </select>
+
         </article>
 
         <hr>
@@ -723,6 +842,9 @@
                 Позволяет указать базовый адрес для относительных <abbr title="Uniform Resource Link">URL</abbr>
                 документа (ссылок, изображений и пр.), задав его через атрибут <code>href</code>.
             </p>
+
+            <!-- DIV -->
+            <h3><code>&lt;div&gt;</code> — базовый блочный элемент</h3>
         </article>
 
         <hr>
