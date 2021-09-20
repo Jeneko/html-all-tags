@@ -171,6 +171,14 @@
                     кассы!</q>
             </p>
 
+            <!-- DFN -->
+            <h3><code>&lt;dfn&gt;</code> — определение (definition)</h3>
+            <p>
+                Используется для выделения термина, которому будет дано определение в содержащем его блоке. Блоками
+                могут выступать <code>p</code>, <code>dt</code>, <code>dd</code>, <code>section</code>. Блоком,
+                раскрывающим определение будет являться ближайший предок <code>dfn</code>.
+            </p>
+
             <!-- VAR -->
             <h3><code>&lt;var&gt;</code> — выделение переменной (variable)</h3>
             <p>
@@ -486,6 +494,12 @@
                     <b>src</b> — источник медиа-ресурса.
                 </li>
             </ul>
+
+            <!-- TRACK -->
+            <h3><code>&lt;track&gt;</code> — дополнительные текстовые данные для <i>audio</i> и <i>video</i></h3>
+            <p>
+                Позволяет указать для ресурса синхронизированные текстовые дорожки (например, субтитры).
+            </p>
         </article>
 
         <hr>
@@ -507,6 +521,13 @@
             <h4>H4 header</h4>
             <h5>H5 header</h5>
             <h6>H6 header</h6>
+
+            <h3><code>&lt;hgroup&gt;</code> — группа заголовков</h3>
+            <p>
+                Позволяет сгруппировать заголовки, например <code>h1</code> и <code>h2</code> так, что второй заголовок
+                будет <em>считаться</em> подзаголовком первого. <strong>Не&nbsp;рекомендуется к применению</strong>
+                из-за проблем с симантичностью.
+            </p>
         </article>
 
         <hr>
@@ -546,7 +567,112 @@
 
             <!-- IFRAME -->
             <h3><code>&lt;iframe src="..."&gt;</code> — встроенное содержимое</h3>
-            <iframe src="All-HTML-Tags.html" frameborder="0" width="640" height="240"></iframe>
+            <iframe src="All-HTML-Tags.html" width="640" height="240"></iframe>
+
+            <!-- OBJECT -->
+            <h3><code>&lt;object type="..." data="..."&gt;</code> — элемент внешнего ресурса</h3>
+            <p>
+                Позволяет вставить <i>pdf</i>, <i>flash</i> и т.п. ресурсы, которые будут обработаны плагином браузера.
+                Атрибуты <code>type</code> (MIME-тип ресурса) и <code>data</code> (URL ресурса) являются обязательными.
+            </p>
+
+            <!-- PARAM -->
+            <h3><code>&lt;param&gt;</code> — параметры, передаваемые в ресурс элемента <i>object</i></h3>
+            <p>
+                Позволяет через атрибуты <code>name</code> и <code>value</code> передать произвольные параметры в
+                ресурс, подключаемый через <code>object</code>. Может быть больше одного.
+            </p>
+
+            <!-- EMBED -->
+            <h3><code>&lt;embed type="..." src="..."&gt;</code> — элемент внешнего ресурса</h3>
+            <p>
+                Позволяет вставить <i>mp4</i> и т.п. ресурсы, которые будут обработаны плагином браузера.
+                Атрибуты <code>type</code> (MIME-тип ресурса) и <code>src</code> (URL ресурса) являются обязательными.
+                По-сути повторяет функционал <code>object</code>.
+            </p>
+
+            <!-- TEMPLATE -->
+            <h3><code>&lt;template&gt;</code> — контент для последующего отображения средствами <i>JS</i></h3>
+            <p>
+                Содержимое будет обработано <i>парсером</i> на <i>валидность</i>, но не будет отображено на странице.
+                Используется в случаях, когда требуется подготовить какую-либо структуру, которая впоследствии, силами
+                <abbr title="JavaScript">JS</abbr>, может быть дозаполнена данными, после чего отображена в документе.
+            </p>
+            <p>
+                Обратиться к содержимому <code>template</code> через <abbr title="JavaScript">JS</abbr> можно через
+                специальное свойство <i>content</i>. Внутри содержится объект <i>DocumentFragment</i>, который требуется
+                <em>клонировать</em> методом <code>cloneNode(true)</code>, после чего клон может быть вставлен в
+                документ.<br>
+                <strong>Не рекомендуется</strong> вставлять исходный объект <i>DocumentFragment</i>.
+                Подробнее см. <a href="https://learn.javascript.ru/template-element">Вебкомпоненты (webComponents)</a>.
+            </p>
+            <p id="template-insert-place"></p>
+            <template id="template-sample">
+                <b>Пример:</b> Hello <span></span>!
+            </template>
+            <script>
+                const name = "kupo";
+                const template = document.getElementById('template-sample').content.cloneNode(true);
+                const placement = document.getElementById('template-insert-place');
+
+                template.querySelector('span').textContent = name;
+                placement.append(template);
+            </script>
+
+            <!-- SLOT -->
+            <h3><code>&lt;slot&gt;</code> — место в <i>вебкомпоненте</i>, куда может быть передано произвольное
+                содержимое (текст или разметка)</h3>
+            <p>
+                Подробнее см. <a href="https://learn.javascript.ru/slots-composition">Вебкомпоненты (webComponents)</a>.
+            </p>
+
+            <!-- CANVAS -->
+            <h3><code>&lt;canvas&gt;</code> — элемент рисования графики и анимации</h3>
+
+            <!-- PROGRESS -->
+            <h3><code>&lt;progress&gt;</code> — прогресс-бар</h3>
+            <p>
+                Используется для отображения степени <i>завершенности</i> процесса. Текущее значение задается атрибутом
+                <code>value</code>, конечное значение задается атрибутом <code>max</code>.
+            </p>
+            <progress value="75" max="100"></progress>
+
+            <!-- METER -->
+            <h3><code>&lt;meter&gt;</code> — измерительная шкала</h3>
+            <p>
+                Используется для визуального отображения значения, находящегося в каких-либо <i>рамках</i>. Рамки
+                задаются атрибутами <code>min</code>, <code>low</code>, <code>optimum</code>, <code>high</code> и
+                <code>max</code>. Текущее значение шкалы задается атрибутом <code>value</code>. В зависимости от того, в
+                каких <i>рамках</i> находится <i>текущее значение</i>, шкала будет иметь определенный цвет.<br>
+                Значение шкалы можно <i>привязать</i> к какой-либо <i>форме</i>. Для этого используется атрибут
+                <code>form="id-формы"</code>.
+            </p>
+            <meter min="0" low="25" optimum="50" high="75" max="100" value="50"></meter>
+            <meter low="69" high="80" max="100" value="84"></meter>
+
+            <!-- DIALOG -->
+            <h3><code>&lt;dialog&gt;</code> — аналог <i>модального окна</i></h3>
+            <p>
+                Имеет атрибут <code>open</code>, наличие или отсутствие которого определяет, будет ли показано
+                содержимое элемента.<br>
+                <strong>Не поддерживается</strong> <i>IE</i>, <i>Firefox</i>, <i>Safari \ iOS</i>
+            </p>
+            <button id="dialog-sample-toggler">Show\hide dialog</button>
+            <dialog id="dialog-sample">
+                <p>Привет, Люк! Я твой диалог.</p>
+            </dialog>
+            <script>
+                const dialog = document.getElementById('dialog-sample');
+                const dialogToggler = document.getElementById('dialog-sample-toggler');
+
+                dialogToggler.onclick = function () {
+                    if (!dialog.hasAttribute('open')) {
+                        dialog.setAttribute('open', '');
+                    } else {
+                        dialog.removeAttribute('open');
+                    }
+                }
+            </script>
         </article>
 
         <hr>
@@ -594,6 +720,24 @@
 
             <!-- LI -->
             <h3><code>&lt;li&gt;</code> — элемент списка (list item)</h3>
+
+            <!-- DL | DT | DD -->
+            <h3><code>&lt;dl&gt;</code> <code>&lt;dt&gt;</code> и <code>&lt;dd&gt;</code> — список описаний (description
+                list)</h3>
+            <p>
+                Используется для списков, элементы которого представляют из себя <i>термин</i> <code>dt</code>
+                (description term) и его <i>описание</i> <code>dd</code> (description details).
+            </p>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language — язык разметки гипертекста. Как обычный текст, только <em>гипер</em>.
+                </dd>
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheet — каскадные таблицы стилей. Позволяет вашим интернет-страницам всегда быть на
+                    стиле.</dd>
+                <dt>JavaScript</dt>
+                <dd>Самый популярный язык программирования по версии вашего браузера.</dd>
+            </dl>
         </article>
 
         <hr>
@@ -787,12 +931,51 @@
 
             <!-- SELECT | OPTION -->
             <h3><code>&lt;select&gt;</code> и <code>&lt;option&gt;</code> — выпадающий список и его пункты</h3>
-            <select name="" id="">
+            <select name="optionSelection">
                 <option value="">--Please choose an option--</option>
                 <option value="1">Value 1</option>
                 <option value="2">Value 2</option>
                 <option value="3">Value 3</option>
             </select>
+
+            <!-- OPTGROUP -->
+            <h3><code>&lt;optgroup label="..."&gt;</code> — группировка опций <code>select</code></h3>
+            <p>
+                Позволяет сгруппировать опции внутри <code>select</code> и добавить каждой группе заголовок через
+                атрибут <code>label</code>.
+            </p>
+            <select name="optionSelectionOptgroup">
+                <optgroup label="Основные цвета">
+                    <option value="1">Red</option>
+                    <option value="2">Green</option>
+                    <option value="2">Blue</option>
+                </optgroup>
+                <optgroup label="Дополнительные цвета">
+                    <option value="1">Pink</option>
+                    <option value="2">Violet</option>
+                    <option value="2">Golden</option>
+                </optgroup>
+            </select>
+
+            <!-- DATALIST -->
+            <h3><code>&lt;datalist&gt;</code> — список вариантов значений инпута</h3>
+            <p>
+                Позволяет внутри себя перечислить варианты значений для <code>input</code>. Каждый вариант определяется
+                элементом code{&lt;option value="..."&gt;}, значение которого указывается в атрибуте <code>value</code>.
+                При этом <code>option</code> используется без содержимого и закрывающего тега.<br>
+                Чтобы <i>привязать</i> <code>datalist</code> к какому-либо <code>input</code>, у этого
+                <code>input</code> требуется указать атрибут <code>list="..."</code> содержащий <strong>ID</strong>
+                нужного списка.<br>
+                В отличие от <code>select</code>, <code>datalist</code> <em>не ограничивает значение</em>
+                <code>input</code> указанным списком. Если требуемое значение в списке отсутствует, пользователь все
+                равно имеет возможность вписать его <i>вручную</i>.
+            </p>
+            <input type="text" list="datalist-sample" placeholder="Ваш любимый цвет">
+            <datalist id="datalist-sample">
+                <option value="Красный">
+                <option value="Зеленый">
+                <option value="Голубой">
+            </datalist>
 
         </article>
 
@@ -860,6 +1043,14 @@
                 <code>&lt;rp&gt;</code>
                 — размещение текста в азиатских и восточных языках
             </h3>
+
+            <h3>
+                <code>&lt;bdi&gt;</code>
+                <code>&lt;bdo&gt;</code>
+                — определяет направление текста внутри себя (<i>LTR</i> и <i>RTL</i>).
+            </h3>
+
+            <h3><code>&lt;wbr&gt;</code> — место возможного разрыва в длинном слове (WordBReak)</h3>
         </article>
     </main>
 
